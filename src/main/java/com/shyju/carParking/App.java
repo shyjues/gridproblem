@@ -1,13 +1,35 @@
 package com.shyju.carParking;
 
+import java.util.Scanner;
+
 /**
  * Hello world!
  *
  */
-public class App 
+public class App
 {
+	
+	private static ProcessMovement processMovement = new ProcessMovement();
+	
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+    	Scanner sc = new Scanner(System.in);
+    	
+    	while (sc.hasNext()) {
+            if (sc.hasNextInt())
+                System.out.println(sc.nextInt());
+            else {
+                String inputPattern = sc.next();
+                
+                
+                System.out.println(inputPattern.split(":")[0].split(",")[0]);
+                
+                System.out.println(inputPattern.split(":")[0].split(",")[1]);
+            }
+        }
+    	
+    	sc.close();
+    	
+    	
     }
 }
