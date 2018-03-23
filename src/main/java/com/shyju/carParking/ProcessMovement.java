@@ -6,7 +6,7 @@ public class ProcessMovement {
     int index = 0;
 
 
-    public String process(int xPosition, int yPosition, String pattern) {
+    public String process(int yPosition, int xPosition, String pattern) {
 
         int xx = xPosition;
         int yy = yPosition;
@@ -24,6 +24,8 @@ public class ProcessMovement {
                     break;
                 default:
                     {
+
+
                         switch(direction){
                             case 'N':
                                 yy++;
@@ -68,6 +70,8 @@ public class ProcessMovement {
                 dir = (movement=='R')?'W':'E';
                 break;
         }
+
+        System.out.println("movement ="+movement+"  dir="+dir);
 
         return dir;
     }

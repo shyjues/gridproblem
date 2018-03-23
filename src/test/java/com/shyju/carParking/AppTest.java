@@ -43,5 +43,7 @@ public class AppTest
 
         Assert.assertTrue("check if the solution is correct for 5,5:FLFLFFRFFF",processMovement.process(5,5, "FLFLFFRFFF").equals("4,1"));
 
+        Assert.assertTrue("check if the solution is correct for 8,10:RFFLFLFRFF",processMovement.process(8,10, "RFFLFLFRFF").equals("11,11"));
+
     }
 }
