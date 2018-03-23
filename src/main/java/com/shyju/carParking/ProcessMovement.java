@@ -1,34 +1,75 @@
 package com.shyju.carParking;
 
 public class ProcessMovement {
-	
-	String defaultDirection = "N";
-	
-	int index = 0;
 
 
-	public String process(int xPosition, int yPosition, String pattern){
-		
-		System.out.println(pattern);
-		
-		while(pattern.charAt(index)!=-1){
-			
-			switch(pattern.charAt(index)){
-			
-			case 'R': System.out.println("R");
-			break;
-			case 'L':System.out.println("L");
-			break;
-			default: System.out.println("Not both");
-			break;
-			
-			}
-			
-			index++;
-		}
-		
-		return "";
-		
-	}
-	
+    int index = 0;
+
+
+    public String process(int xPosition, int yPosition, String pattern) {
+
+        int xx = xPosition;
+        int yy = yPosition;
+
+        char direction = 'N';
+
+        for (char ch : pattern.toCharArray()) {
+            switch (ch) {
+
+                case 'R':
+                    direction = setDirection(direction, ch);
+                    break;
+                case 'L':
+                    direction = setDirection(direction, ch);
+                    break;
+                default:
+                    {
+                        switch(direction){
+                            case 'N':
+                                yy++;
+                                break;
+                            case 'S':
+                                yy--;
+                                break;
+                            case 'E':
+                                xx++;
+                                break;
+                            case 'W':
+                                xx--;
+                                break;
+                        }
+                    }
+                    break;
+            }
+
+        }
+        System.out.println(yy+","+xx);
+        return yy+","+xx;
+
+    }
+
+
+    private char setDirection(char direction, char movement){
+
+        char dir = ' ';
+
+        switch(direction){
+
+            case 'N':
+                dir = (movement=='R')? 'E':'W';
+                break;
+            case 'E':
+                dir = (movement=='R')?'S':'N';
+                break;
+            case 'W':
+                dir = (movement=='R')?'N':'S';
+                break;
+            case 'S':
+                dir = (movement=='R')?'W':'E';
+                break;
+        }
+
+        return dir;
+    }
+
 }

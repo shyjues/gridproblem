@@ -19,8 +19,6 @@ public class App {
 			else {
 				String inputPattern = sc.next();
 
-
-
 				processMovement.process(
 						Integer.parseInt(inputPattern.split(":")[0].split(",")[0]),
 						Integer.parseInt(inputPattern.split(":")[0].split(",")[1]),

@@ -1,5 +1,6 @@
 package com.shyju.carParking;
 
+import junit.framework.Assert;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -33,6 +34,14 @@ public class AppTest
      */
     public void testApp()
     {
-        assertTrue( true );
+
+        ProcessMovement processMovement = new ProcessMovement();
+
+        Assert.assertTrue("Check if the solution is correct for 5,5:RFLFRFLF",processMovement.process(5,5, "RFLFRFLF").equals("7,7"));
+
+        Assert.assertTrue("check if the solution is correct for 6,6:FFLFFLFFLFF",processMovement.process(6,6, "FFLFFLFFLFF").equals("6,6"));
+
+        Assert.assertTrue("check if the solution is correct for 5,5:FLFLFFRFFF",processMovement.process(5,5, "FLFLFFRFFF").equals("4,1"));
+
     }
 }
