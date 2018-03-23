@@ -45,7 +45,6 @@ public class ProcessMovement {
             }
 
         }
-        System.out.println(yy+","+xx);
         return yy+","+xx;
 
     }
@@ -70,8 +69,6 @@ public class ProcessMovement {
                 dir = (movement=='R')?'W':'E';
                 break;
         }
-
-        System.out.println("movement ="+movement+"  dir="+dir);
 
         return dir;
     }

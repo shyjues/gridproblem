@@ -1,49 +1,37 @@
 package com.shyju.carParking;
 
-import junit.framework.Assert;
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Assert;
+import org.junit.Test;
+
+
 
 /**
  * Unit test for simple App.
  */
 public class AppTest 
-    extends TestCase
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
-
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
+    
     /**
      * Rigourous Test :-)
      */
-    public void testApp()
+	@Test
+	public void testApp()
     {
 
-        ProcessMovement processMovement = new ProcessMovement();
+        App app = new App();
 
-        Assert.assertTrue("Check if the solution is correct for 5,5:RFLFRFLF",processMovement.process(5,5, "RFLFRFLF").equals("7,7"));
+        Assert.assertTrue("Check if the solution is correct for 5,5:RFLFRFLF",app.findPosition("5,5:RFLFRFLF").equals("7,7"));
 
-        Assert.assertTrue("check if the solution is correct for 6,6:FFLFFLFFLFF",processMovement.process(6,6, "FFLFFLFFLFF").equals("6,6"));
+        Assert.assertTrue("check if the solution is correct for 6,6:FFLFFLFFLFF",app.findPosition("6,6:FFLFFLFFLFF").equals("6,6"));
 
-        Assert.assertTrue("check if the solution is correct for 5,5:FLFLFFRFFF",processMovement.process(5,5, "FLFLFFRFFF").equals("4,1"));
+        Assert.assertTrue("check if the solution is correct for 5,5:FLFLFFRFFF",app.findPosition("5,5:FLFLFFRFFF").equals("4,1"));
 
-        Assert.assertTrue("check if the solution is correct for 8,10:RFFLFLFRFF",processMovement.process(8,10, "RFFLFLFRFF").equals("11,11"));
+        Assert.assertTrue("check if the solution is correct for 8,10:RFFLFLFRFF",app.findPosition("8,10:RFFLFLFRFF").equals("11,11"));
+        
+        Assert.assertTrue("check if the solution is correct for 7,10:RFRFRFFLFF",app.findPosition("7,10:RFRFRFFLFF").equals("4,9"));
+        
+        Assert.assertTrue("check if the solution is correct for 10,4:FFFLFRF",app.findPosition("10,4:FFFLFRF").equals("14,3"));
+        
 
     }
 }
